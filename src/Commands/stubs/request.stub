@@ -1,0 +1,29 @@
+<?php
+
+namespace DummyNamespace;
+
+use Illuminate\Http\Request;
+
+class DummyClass
+{
+    /**
+     * Create collection for the request.
+     *
+     * @return \Illuminate\Support\Collection|\Illuminate\Support\LazyCollection
+     */
+    public function collection(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Transform data to array.
+     *
+     * @param  \Illuminate\Database\Eloquent\Model|mixed  $data
+     * @return array
+     */
+    public function transform($data): array
+    {
+        return [];
+    }
+}

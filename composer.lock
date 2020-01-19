@@ -831,12 +831,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/canvas.git",
-                "reference": "64a47da9f52d405a28175a86f64ee969e720ef8e"
+                "reference": "2d779e18ed150970b4be42c0ccb9c62b1db2ab49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/canvas/zipball/64a47da9f52d405a28175a86f64ee969e720ef8e",
-                "reference": "64a47da9f52d405a28175a86f64ee969e720ef8e",
+                "url": "https://api.github.com/repos/orchestral/canvas/zipball/2d779e18ed150970b4be42c0ccb9c62b1db2ab49",
+                "reference": "2d779e18ed150970b4be42c0ccb9c62b1db2ab49",
                 "shasum": ""
             },
             "require": {
@@ -890,7 +890,7 @@
                 }
             ],
             "description": "Code Generators for Laravel Applications and Packages",
-            "time": "2020-01-19T10:39:36+00:00"
+            "time": "2020-01-19T11:44:41+00:00"
         },
         {
             "name": "paragonie/random_compat",

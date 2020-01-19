@@ -1,0 +1,30 @@
+preset: package
+
+namespace: Laravie\Prefetch
+
+paths:
+  src: src
+  resource: resources
+
+factory:
+  path: database/factories
+
+migration:
+  path: database/migrations
+  prefix: ''
+
+console:
+  namespace: Laravie\Prefetch\Commands
+
+model:
+  namespace: Laravie\Prefetch
+
+provider:
+  namespace: Laravie\Prefetch
+
+testing:
+  namespace: Laravie\Prefetch\Tests
+
+generators:
+  - Orchestra\Canvas\Commands\Code
+  - Orchestra\Canvas\Commands\ConsoleGenerator
