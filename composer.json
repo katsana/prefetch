@@ -10,10 +10,11 @@
         }
     ],
     "require": {
-        "illuminate/support": "^6.0"
+        "illuminate/support": "^6.0",
+        "orchestra/canvas-core": "^4.4"
     },
     "require-dev": {
-        "orchestra/canvas": "^4.3",
+        "orchestra/canvas": "^4.4",
         "orchestra/testbench": "^4.0.1"
     },
     "config": {
