@@ -27,7 +27,7 @@ class Controller extends \Illuminate\Routing\Controller
                 ->transform(static function ($data) use ($handler) {
                     return $handler->transform($data);
                 })->each(static function ($data) {
-                    echo \json_encode($data);
+                    echo "data: ".\json_encode($data)."\n\n";
                 });
         }, 200, [
             'Content-Type' => 'text/event-stream',
