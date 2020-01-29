@@ -11,7 +11,7 @@
     ],
     "require": {
         "illuminate/support": "^6.0",
-        "orchestra/canvas-core": "^4.4"
+        "orchestra/canvas-core": "^4.6"
     },
     "require-dev": {
         "orchestra/canvas": "^4.4",
