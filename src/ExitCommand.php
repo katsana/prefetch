@@ -16,7 +16,7 @@ class ExitCommand implements Contracts\Command
      *
      * @param \Katsana\Prefetch\Data|null $data
      */
-    public function __contruct(?Data $data = null)
+    public function __construct(?Data $data = null)
     {
         $this->data = $data;
     }
