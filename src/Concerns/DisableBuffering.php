@@ -13,8 +13,15 @@ trait DisableBuffering
     {
         // Turn off output buffering
         \ini_set('output_buffering', 'off');
-        // Turn off PHP output compression
 
+        //Flush (send) the output buffer and turn off output buffering
+        if (! \app()->environment('testing')) {
+            while (@\ob_end_flush()) {
+                //
+            }
+        }
+
+        // Turn off PHP output compression
         try {
             \ini_set('zlib.output_compression', false);
         } catch (Throwable $e) {
