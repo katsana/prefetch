@@ -43,7 +43,7 @@ class Controller extends \Illuminate\Routing\Controller
             do {
                 $handler->collection($request)
                     ->map(static function ($data) use ($handler) {
-                        if (! $data instanceof ExitCommand) {
+                        if ($data instanceof ExitCommand) {
                             return $data;
                         }
 
@@ -51,11 +51,11 @@ class Controller extends \Illuminate\Routing\Controller
                     })->each(static function ($data) use ($shouldExit) {
                         if ($data instanceof ExitCommand) {
                             $shouldExit = true;
+
+                            return false;
                         }
 
-                        if (! $shouldExit) {
-                            echo 'data: '.\json_encode($data)."\n\n";
-                        }
+                        echo 'data: '.\json_encode($data)."\n\n";
                     });
 
                 $handler->onLoopEnded();
