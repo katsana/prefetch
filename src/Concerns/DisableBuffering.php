@@ -2,6 +2,8 @@
 
 namespace Katsana\Prefetch\Concerns;
 
+use Throwable;
+
 trait DisableBuffering
 {
     /**
@@ -12,10 +14,10 @@ trait DisableBuffering
         // Turn off output buffering
         \ini_set('output_buffering', 'off');
         // Turn off PHP output compression
-        \ini_set('zlib.output_compression', false);
 
-        //Flush (send) the output buffer and turn off output buffering
-        while (@\ob_end_flush()) {
+        try {
+            \ini_set('zlib.output_compression', false);
+        } catch (Throwable $e) {
             //
         }
 

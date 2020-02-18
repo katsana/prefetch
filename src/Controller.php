@@ -38,24 +38,28 @@ class Controller extends \Illuminate\Routing\Controller
     protected function streamResolver(Handler $handler, Request $request): Closure
     {
         return static function () use ($handler, $request) {
+            $shouldExit = false;
+
             do {
                 $handler->collection($request)
                     ->map(static function ($data) use ($handler) {
-                        if ($data instanceof ExitCommand) {
+                        if (! $data instanceof ExitCommand) {
                             return $data;
                         }
 
                         return $handler->transform($data);
-                    })->each(static function ($data) {
+                    })->each(static function ($data) use ($shouldExit) {
                         if ($data instanceof ExitCommand) {
-                            exit();
+                            $shouldExit = true;
                         }
 
-                        echo 'data: '.\json_encode($data)."\n\n";
+                        if (! $shouldExit) {
+                            echo 'data: '.\json_encode($data)."\n\n";
+                        }
                     });
 
                 $handler->onLoopEnded();
-            } while ($handler instanceof Contracts\LoopUntil);
+            } while ($handler instanceof Contracts\LoopUntil && ! $shouldExit);
 
             $handler->onStreamEnded();
         };

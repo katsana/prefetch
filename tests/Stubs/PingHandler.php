@@ -1,12 +1,12 @@
 <?php
 
-namespace DummyNamespace;
+namespace Katsana\Prefetch\Tests\Stubs;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Katsana\Prefetch\Handler;
 
-class DummyClass extends Handler
+class PingHandler extends Handler
 {
     /**
      * Create collection for the request.
@@ -15,17 +15,9 @@ class DummyClass extends Handler
      */
     public function collection(Request $request)
     {
-        return Collection::make([]);
-    }
-
-    /**
-     * Transform data to array.
-     *
-     * @param  \Illuminate\Database\Eloquent\Model|mixed  $data
-     * @return array|mixed
-     */
-    public function transform($data)
-    {
-        return $data;
+        return Collection::make([
+            'foo',
+            'bar',
+        ]);
     }
 }

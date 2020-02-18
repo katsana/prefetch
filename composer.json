@@ -15,10 +15,15 @@
             "Katsana\\Prefetch\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Katsana\\Prefetch\\Tests\\": "tests/"
+        }
+    },
     "require": {
         "php": ">=7.2",
         "illuminate/support": "^6.0",
-        "orchestra/canvas-core": "^4.6"
+        "orchestra/canvas-core": "^4.7"
     },
     "require-dev": {
         "orchestra/canvas": "^4.4",
