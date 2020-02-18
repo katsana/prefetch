@@ -24,7 +24,6 @@ class MakePrefetchCommandTest extends TestCase
             'use Katsana\Prefetch\Handler;',
             'class Ping extends Handler',
             'public function collection(Request $request)',
-            'public function transform($data)',
         ], 'app/Http/Prefetch/Ping.php');
     }
 

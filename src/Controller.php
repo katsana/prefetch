@@ -45,7 +45,7 @@ class Controller extends \Illuminate\Routing\Controller
             do {
                 $handler->collection($request)
                     ->map(static function ($data) use ($handler) {
-                        if ($data instanceof ExitCommand) {
+                        if ($data instanceof Contracts\Command) {
                             return $data;
                         }
 

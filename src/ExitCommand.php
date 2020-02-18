@@ -2,7 +2,7 @@
 
 namespace Katsana\Prefetch;
 
-class ExitCommand
+class ExitCommand implements Contracts\Command
 {
     /**
      * Data payload.

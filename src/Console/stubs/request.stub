@@ -18,14 +18,4 @@ class DummyClass extends Handler
     {
         return Collection::make([]);
     }
-
-    /**
-     * Transform data to array.
-     *
-     * @param  \Illuminate\Database\Eloquent\Model|mixed  $data
-     */
-    public function transform($data): Data
-    {
-        return Data::make($data);
-    }
 }
