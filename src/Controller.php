@@ -5,7 +5,6 @@ namespace Katsana\Prefetch;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
-use Katsana\Prefetch\Handler;
 
 class Controller extends \Illuminate\Routing\Controller
 {
@@ -50,7 +49,7 @@ class Controller extends \Illuminate\Routing\Controller
                             return $data;
                         }
 
-                        return $handler->transform($data);
+                        return Data::make($handler->transform($data));
                     })->each(function ($data) {
                         if ($data instanceof ExitCommand) {
                             $this->shouldExit = true;
@@ -58,7 +57,7 @@ class Controller extends \Illuminate\Routing\Controller
                             return false;
                         }
 
-                        echo 'data: '.\json_encode($data)."\n\n";
+                        echo (string) $data;
                     });
 
                 $handler->onLoopEnded();

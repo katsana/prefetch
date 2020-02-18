@@ -4,6 +4,7 @@ namespace DummyNamespace;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use Katsana\Prefetch\Data;
 use Katsana\Prefetch\Handler;
 
 class DummyClass extends Handler
@@ -22,10 +23,9 @@ class DummyClass extends Handler
      * Transform data to array.
      *
      * @param  \Illuminate\Database\Eloquent\Model|mixed  $data
-     * @return array|mixed
      */
-    public function transform($data)
+    public function transform($data): Data
     {
-        return $data;
+        return new Data($data);
     }
 }

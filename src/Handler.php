@@ -7,12 +7,11 @@ abstract class Handler
     /**
      * Transform data to array.
      *
-     * @param  \Illuminate\Database\Eloquent\Model|mixed  $data
-     * @return array|mixed
+     * @param \Illuminate\Database\Eloquent\Model|mixed $data
      */
-    public function transform($data)
+    public function transform($data): Data
     {
-        return $data;
+        return new Data($data);
     }
 
     /**
