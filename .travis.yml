@@ -27,8 +27,6 @@ before_script:
   - if [[ $setup = 'stable' ]]; then travis_retry composer update --prefer-dist --no-interaction --no-suggest --prefer-stable; fi
   - if [[ $setup = 'lowest' ]]; then travis_retry composer update --prefer-dist --no-interaction --no-suggest --prefer-lowest --prefer-stable; fi
   - if [[ $setup = 'coveralls' ]]; then travis_retry composer require "satooshi/php-coveralls=^2.1" --prefer-dist --no-interaction --no-suggest --dev; fi
-  - vendor/bin/dusk-updater detect --auto-update
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
 
 script:
   - if [[ $coverage = 'yes' ]]; then vendor/bin/phpunit -c phpunit.xml.dist --coverage-clover build/logs/clover.xml; fi
