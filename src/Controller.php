@@ -12,7 +12,6 @@ class Controller extends \Illuminate\Routing\Controller
     /**
      * Handle the incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function __invoke(Request $request)
@@ -34,9 +33,9 @@ class Controller extends \Illuminate\Routing\Controller
 
                         return $handler->transform($data);
                     })->each(static function ($data) {
-                        echo "data: ".\json_encode($data)."\n\n";
+                        echo 'data: '.\json_encode($data)."\n\n";
                     });
-            } while($loopUntil === true);
+            } while ($loopUntil === true);
 
             if ($loopUntil === true) {
                 $handler->onLoopEnded();

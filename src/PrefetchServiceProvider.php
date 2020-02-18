@@ -41,8 +41,6 @@ class PrefetchServiceProvider extends ServiceProvider
 
     /**
      * Register router macro.
-     *
-     * @return void
      */
     protected function registerRouterMacro(): void
     {
