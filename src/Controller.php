@@ -29,7 +29,7 @@ class Controller extends \Illuminate\Routing\Controller
                 $handler->collection($request)
                     ->map(static function ($data) use ($handler) {
                         if ($data instanceof ExitCommand) {
-                            \exit();
+                            exit();
                         }
 
                         return $handler->transform($data);
