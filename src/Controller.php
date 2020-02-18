@@ -23,6 +23,8 @@ class Controller extends \Illuminate\Routing\Controller
         $handler = \app()->make($request->route()->defaults['handler']);
 
         return Response::stream(function () use ($handler, $request) {
+            $loopUntil = $handler instanceof Contracts\LoopUntil;
+
             do {
                 $handler->collection($request)
                     ->map(static function ($data) use ($handler) {
@@ -34,7 +36,11 @@ class Controller extends \Illuminate\Routing\Controller
                     })->each(static function ($data) {
                         echo "data: ".\json_encode($data)."\n\n";
                     });
-            } while($handler instanceof Contracts\LoopUntil);
+            } while($loopUntil === true);
+
+            if ($loopUntil === true) {
+                $handler->onLoopEnded();
+            }
         }, 200, [
             'Content-Type' => 'text/event-stream',
             'X-Accel-Buffering' => 'no',
