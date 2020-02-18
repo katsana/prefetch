@@ -15,6 +15,14 @@ abstract class Handler
     }
 
     /**
+     * On loop started event.
+     */
+    public function onLoopStarted(): void
+    {
+        //
+    }
+
+    /**
      * On loop ended event.
      */
     public function onLoopEnded(): void
@@ -23,7 +31,15 @@ abstract class Handler
     }
 
     /**
-     * On loop ended event.
+     * On stream started event.
+     */
+    public function onStreamStarted(): void
+    {
+        //
+    }
+
+    /**
+     * On stream ended event.
      */
     public function onStreamEnded(): void
     {

@@ -21,7 +21,6 @@ class Event implements Contracts\Command
     /**
      * Construct a new EventCommand.
      *
-     * @param string $name
      * @param \Katsana\Prefetch\Data $data
      */
     public function __construct(string $name, Data $data)

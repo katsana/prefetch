@@ -42,7 +42,11 @@ class Controller extends \Illuminate\Routing\Controller
     protected function streamResolver(Handler $handler, Request $request): Closure
     {
         return function () use ($handler, $request) {
+            $handler->onStreamStarted();
+
             do {
+                $handler->onLoopStarted();
+
                 $handler->collection($request)
                     ->map(static function ($data) use ($handler) {
                         if ($data instanceof Contracts\Command) {
