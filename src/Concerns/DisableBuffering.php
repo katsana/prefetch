@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravie\Prefetch\Concerns;
+namespace Katsana\Prefetch\Concerns;
 
 trait DisableBuffering
 {

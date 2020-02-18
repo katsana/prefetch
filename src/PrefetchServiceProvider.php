@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravie\Prefetch;
+namespace Katsana\Prefetch;
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
@@ -35,7 +35,7 @@ class PrefetchServiceProvider extends ServiceProvider
     protected function registerRouterMacro(): void
     {
         Router::macro('prefetch', function ($uri, $handler) {
-            return $this->match(['GET', 'HEAD'], $uri, '\Laravie\Prefetch\Controller')
+            return $this->match(['GET', 'HEAD'], $uri, '\Katsana\Prefetch\Controller')
                 ->defaults('handler', $handler);
         });
     }

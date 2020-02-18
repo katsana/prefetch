@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravie\Prefetch;
+namespace Katsana\Prefetch;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;

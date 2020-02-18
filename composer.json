@@ -1,21 +1,28 @@
 {
-    "name": "laravie/prefetch",
+    "name": "katsana/prefetch",
     "description": "SSE Prefetch for Laravel",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
             "name": "Mior Muhammad Zaki",
-            "email": "crynobone@gmail.com"
+            "email": "crynobone@gmail.com",
+            "role": "Developer"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Katsana\\Prefetch\\": "src/"
+        }
+    },
     "require": {
+        "php": ">=7.2",
         "illuminate/support": "^6.0",
         "orchestra/canvas-core": "^4.6"
     },
     "require-dev": {
         "orchestra/canvas": "^4.4",
-        "orchestra/testbench": "^4.0.1"
+        "orchestra/testbench": "^4.5"
     },
     "config": {
         "sort-packages": true

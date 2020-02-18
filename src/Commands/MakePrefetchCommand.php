@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravie\Prefetch\Commands;
+namespace Katsana\Prefetch\Commands;
 
 use Orchestra\Canvas\Core\Commands\Generator;
 
