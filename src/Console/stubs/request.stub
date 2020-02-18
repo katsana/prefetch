@@ -3,6 +3,7 @@
 namespace DummyNamespace;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class DummyClass
 {
@@ -13,7 +14,7 @@ class DummyClass
      */
     public function collection(Request $request)
     {
-        //
+        return Collection::make([]);
     }
 
     /**
