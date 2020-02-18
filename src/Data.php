@@ -21,7 +21,8 @@ class Data implements Contracts\Command
     /**
      * Construct a new Data.
      *
-     * @param mixed $message
+     * @param mixed    $message
+     * @param int|null $id
      */
     public function __construct($message, $id = null)
     {
@@ -33,6 +34,7 @@ class Data implements Contracts\Command
      * Construct of make a new Data.
      *
      * @param \Katsana\Prefetch\Data|mixed $message
+     * @param int|null                     $id
      *
      * @return static
      */
