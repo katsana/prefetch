@@ -49,7 +49,7 @@ class Controller extends \Illuminate\Routing\Controller
                             return $data;
                         }
 
-                        return Data::make($handler->transform($data));
+                        return $handler->transform($data);
                     })->each(function ($data) {
                         if ($data instanceof ExitCommand) {
                             $this->shouldExit = true;

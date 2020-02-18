@@ -11,7 +11,7 @@ abstract class Handler
      */
     public function transform($data): Data
     {
-        return new Data($data);
+        return Data::make($data);
     }
 
     /**
