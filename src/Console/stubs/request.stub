@@ -4,8 +4,9 @@ namespace DummyNamespace;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use Katsana\Prefetch\Handler;
 
-class DummyClass
+class DummyClass extends Handler
 {
     /**
      * Create collection for the request.

@@ -5,6 +5,7 @@ namespace Katsana\Prefetch;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
+use Katsana\Prefetch\Handler;
 
 class Controller extends \Illuminate\Routing\Controller
 {
@@ -34,11 +35,9 @@ class Controller extends \Illuminate\Routing\Controller
      *
      * @param object $handler
      */
-    protected function streamResolver($handler, Request $request): Closure
+    protected function streamResolver(Handler $handler, Request $request): Closure
     {
         return static function () use ($handler, $request) {
-            $loopUntil = $handler instanceof Contracts\LoopUntil;
-
             do {
                 $handler->collection($request)
                     ->map(static function ($data) use ($handler) {
@@ -54,11 +53,11 @@ class Controller extends \Illuminate\Routing\Controller
 
                         echo 'data: '.\json_encode($data)."\n\n";
                     });
-            } while ($loopUntil === true);
 
-            if ($loopUntil === true) {
                 $handler->onLoopEnded();
-            }
+            } while ($handler instanceof Contracts\LoopUntil);
+
+            $handler->onStreamEnded();
         };
     }
 }
