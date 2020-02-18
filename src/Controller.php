@@ -12,6 +12,13 @@ class Controller extends \Illuminate\Routing\Controller
     use Concerns\DisableBuffering;
 
     /**
+     * Should exit request.
+     *
+     * @var bool
+     */
+    protected $shouldExit = false;
+
+    /**
      * Handle the incoming request.
      *
      * @return \Illuminate\Http\Response
@@ -32,14 +39,10 @@ class Controller extends \Illuminate\Routing\Controller
 
     /**
      * Stream resolver.
-     *
-     * @param object $handler
      */
     protected function streamResolver(Handler $handler, Request $request): Closure
     {
-        return static function () use ($handler, $request) {
-            $shouldExit = false;
-
+        return function () use ($handler, $request) {
             do {
                 $handler->collection($request)
                     ->map(static function ($data) use ($handler) {
@@ -48,9 +51,9 @@ class Controller extends \Illuminate\Routing\Controller
                         }
 
                         return $handler->transform($data);
-                    })->each(static function ($data) use ($shouldExit) {
+                    })->each(function ($data) {
                         if ($data instanceof ExitCommand) {
-                            $shouldExit = true;
+                            $this->shouldExit = true;
 
                             return false;
                         }
@@ -59,7 +62,7 @@ class Controller extends \Illuminate\Routing\Controller
                     });
 
                 $handler->onLoopEnded();
-            } while ($handler instanceof Contracts\LoopUntil && ! $shouldExit);
+            } while ($handler instanceof Contracts\LoopUntil && $this->shouldExit === false);
 
             $handler->onStreamEnded();
         };

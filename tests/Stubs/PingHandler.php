@@ -8,16 +8,10 @@ use Katsana\Prefetch\Handler;
 
 class PingHandler extends Handler
 {
-    /**
-     * Create collection for the request.
-     *
-     * @return \Illuminate\Support\Collection|\Illuminate\Support\LazyCollection
-     */
+    protected $data = ['foo', 'bar'];
+
     public function collection(Request $request)
     {
-        return Collection::make([
-            'foo',
-            'bar',
-        ]);
+        return Collection::make($this->data);
     }
 }
