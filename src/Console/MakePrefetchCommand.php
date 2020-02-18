@@ -11,7 +11,7 @@ class MakePrefetchCommand extends Generator
      *
      * @var string
      */
-    protected $signature = 'make:prefetch';
+    protected $name = 'make:prefetch';
 
     /**
      * The console command description.
