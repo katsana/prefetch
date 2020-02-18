@@ -36,6 +36,9 @@ class MakeRequestTest extends TestCase
 
 data: "bar"
 
+id: 1234
+data: "foobar"
+
 ', $response->streamedContent());
 
         $response->assertOk()

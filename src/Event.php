@@ -2,7 +2,7 @@
 
 namespace Katsana\Prefetch;
 
-class EventCommand implements Contracts\Command
+class Event implements Contracts\Command
 {
     /**
      * Event name.

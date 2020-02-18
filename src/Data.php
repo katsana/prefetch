@@ -2,8 +2,15 @@
 
 namespace Katsana\Prefetch;
 
-class Data
+class Data implements Contracts\Command
 {
+    /**
+     * SSE data id.
+     *
+     * @var string
+     */
+    protected $id;
+
     /**
      * SSE data message.
      *
@@ -16,9 +23,10 @@ class Data
      *
      * @param mixed $message
      */
-    public function __construct($message)
+    public function __construct($message, $id = null)
     {
         $this->message = $message;
+        $this->id = $id;
     }
 
     /**
@@ -28,13 +36,13 @@ class Data
      *
      * @return static
      */
-    public static function make($message)
+    public static function make($message, $id = null)
     {
         if ($message instanceof self) {
             return $message;
         }
 
-        return new static($message);
+        return new static($message, $id);
     }
 
     /**
@@ -42,6 +50,9 @@ class Data
      */
     public function __toString()
     {
-        return 'data: '.\json_encode($this->message)."\n\n";
+        $id = ! \is_null($this->id) ? "id: {$this->id}\n" : '';
+        $data = 'data: '.\json_encode($this->message)."\n\n";
+
+        return sprintf("%sdata: %s\n\n", $id, \json_encode($this->message));
     }
 }

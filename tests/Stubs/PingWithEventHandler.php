@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Katsana\Prefetch\Data;
 use Katsana\Prefetch\Handler;
-use Katsana\Prefetch\EventCommand;
+use Katsana\Prefetch\Event;
 
 class PingWithEventHandler extends Handler
 {
@@ -14,7 +14,7 @@ class PingWithEventHandler extends Handler
     {
         return Collection::make([
             'foo',
-            new EventCommand('ping', new Data(['pong'])),
+            new Event('ping', new Data(['pong'])),
             'bar',
         ]);
     }
