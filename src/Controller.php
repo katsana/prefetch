@@ -22,13 +22,19 @@ class Controller extends \Illuminate\Routing\Controller
 
         $handler = \app()->make($request->route()->defaults['handler']);
 
-        return Response::stream(static function () use ($handler, $request) {
-            $handler->collection($request)
-                ->transform(static function ($data) use ($handler) {
-                    return $handler->transform($data);
-                })->each(static function ($data) {
-                    echo "data: ".\json_encode($data)."\n\n";
-                });
+        return Response::stream(function () use ($handler, $request) {
+            do {
+                $handler->collection($request)
+                    ->map(static function ($data) use ($handler) {
+                        if ($data instanceof ExitCommand) {
+                            \exit();
+                        }
+
+                        return $handler->transform($data);
+                    })->each(static function ($data) {
+                        echo "data: ".\json_encode($data)."\n\n";
+                    });
+            } while($handler instanceof Contracts\LoopUntil);
         }, 200, [
             'Content-Type' => 'text/event-stream',
             'X-Accel-Buffering' => 'no',
