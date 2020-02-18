@@ -14,7 +14,7 @@ migration:
   prefix: ''
 
 console:
-  namespace: Laravie\Prefetch\Commands
+  namespace: Laravie\Prefetch\Console
 
 model:
   namespace: Laravie\Prefetch

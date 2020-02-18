@@ -1,6 +1,6 @@
 <?php
 
-namespace Katsana\Prefetch\Commands;
+namespace Katsana\Prefetch\Console;
 
 use Orchestra\Canvas\Core\Commands\Generator;
 
