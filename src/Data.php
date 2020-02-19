@@ -53,8 +53,11 @@ class Data implements Contracts\Command
     public function __toString()
     {
         $id = ! \is_null($this->id) ? "id: {$this->id}\n" : '';
-        $data = 'data: '.\json_encode($this->message)."\n\n";
 
-        return sprintf("%sdata: %s\n\n", $id, \json_encode($this->message));
+        $payload = $this->message instanceof Arrayable
+            ? $this->message->toArray()
+            : \json_encode($this->message);
+
+        return sprintf("%sdata: %s\n\n", $id, $payload);
     }
 }
