@@ -2,6 +2,7 @@
 
 namespace Laravie\Prefetch\Tests\Unit;
 
+use Illuminate\Support\Fluent;
 use Katsana\Prefetch\Data;
 use PHPUnit\Framework\TestCase;
 
@@ -37,5 +38,13 @@ class DataTest extends TestCase
         $data = new Data(['ping' => 'foobar'], 2);
 
         $this->assertSame("id: 2\ndata: {\"ping\":\"foobar\"}\n\n", (string) $data);
+    }
+
+    /** @test */
+    public function it_can_create_a_simple_data_from_arrayable()
+    {
+        $data = new Data(new Fluent(['ping' => 'foobar']));
+
+        $this->assertSame("data: {\"ping\":\"foobar\"}\n\n", (string) $data);
     }
 }

@@ -2,6 +2,8 @@
 
 namespace Katsana\Prefetch;
 
+use Illuminate\Contracts\Support\Arrayable;
+
 abstract class Handler
 {
     /**
@@ -11,7 +13,9 @@ abstract class Handler
      */
     public function transform($data): Data
     {
-        return Data::make($data);
+        return Data::make(
+            $data instanceof Arrayable ? $data->toArray() : $data
+        );
     }
 
     /**
