@@ -2,7 +2,6 @@
 
 namespace Laravie\Prefetch\Tests\Feature\Console;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Orchestra\Canvas\Core\Testing\TestCase;
 
 class MakePrefetchCommandTest extends TestCase
@@ -30,7 +29,7 @@ class MakePrefetchCommandTest extends TestCase
     /**
      * Get package providers.
      *
-     * @param  \Illuminate\Foundation\Application  $app
+     * @param \Illuminate\Foundation\Application $app
      *
      * @return array
      */

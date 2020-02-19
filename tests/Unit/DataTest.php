@@ -15,7 +15,6 @@ class DataTest extends TestCase
         $this->assertSame("data: \"ping\"\n\n", (string) $data);
     }
 
-
     /** @test */
     public function it_can_create_a_simple_data_using_array()
     {

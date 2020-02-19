@@ -2,7 +2,6 @@
 
 namespace Laravie\Prefetch\Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Route;
 use Katsana\Prefetch\Tests\Stubs\PingHandler;
 use Katsana\Prefetch\Tests\Stubs\PingWithEventHandler;
