@@ -17,6 +17,14 @@ class DataTest extends TestCase
     }
 
     /** @test */
+    public function it_can_reuse_existing_data()
+    {
+        $data = new Data('ping');
+
+        $this->assertSame(Data::make($data), $data);
+    }
+
+    /** @test */
     public function it_can_create_a_simple_data_using_array()
     {
         $data = new Data(['ping' => 'foobar']);
