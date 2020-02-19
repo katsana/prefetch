@@ -32,14 +32,10 @@ class MakeRequestTest extends TestCase
     {
         $response = $this->get('/stream');
 
-        $this->assertSame('data: "foo"
-
-data: "bar"
-
-id: 1234
-data: "foobar"
-
-', $response->streamedContent());
+        $this->assertSame(
+            "data: \"foo\"\n\ndata: \"bar\"\n\nid: 1234\ndata: \"foobar\"\n\n",
+            $response->streamedContent()
+        );
 
         $response->assertOk()
             ->assertHeader('Content-Type', 'text/event-stream; charset=UTF-8')
@@ -51,9 +47,7 @@ data: "foobar"
     {
         $response = $this->get('/stream-with-exit');
 
-        $this->assertSame('data: "foobar"
-
-', $response->streamedContent());
+        $this->assertSame("data: \"foobar\"\n\n", $response->streamedContent());
 
         $response->assertOk()
             ->assertHeader('Content-Type', 'text/event-stream; charset=UTF-8')
@@ -65,14 +59,10 @@ data: "foobar"
     {
         $response = $this->get('/stream-with-event');
 
-        $this->assertSame('data: "foo"
-
-event: ping
-data: ["pong"]
-
-data: "bar"
-
-', $response->streamedContent());
+        $this->assertSame(
+            "data: \"foo\"\n\nevent: ping\ndata: [\"pong\"]\n\ndata: \"bar\"\n\n",
+            $response->streamedContent()
+        );
 
         $response->assertOk()
             ->assertHeader('Content-Type', 'text/event-stream; charset=UTF-8')
@@ -84,13 +74,10 @@ data: "bar"
     {
         $response = $this->get('/stream-with-loop');
 
-        $this->assertSame('data: "foo"
-
-data: "bar"
-
-data: "foobar"
-
-', $response->streamedContent());
+        $this->assertSame(
+            "data: \"foo\"\n\ndata: \"bar\"\n\ndata: \"foobar\"\n\n",
+            $response->streamedContent()
+        );
 
         $response->assertOk()
             ->assertHeader('Content-Type', 'text/event-stream; charset=UTF-8')
