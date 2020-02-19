@@ -2,6 +2,8 @@
 
 namespace Katsana\Prefetch;
 
+use Illuminate\Contracts\Support\Arrayable;
+
 class Data implements Contracts\Command
 {
     /**
@@ -56,8 +58,8 @@ class Data implements Contracts\Command
 
         $payload = $this->message instanceof Arrayable
             ? $this->message->toArray()
-            : \json_encode($this->message);
+            : $this->message;
 
-        return sprintf("%sdata: %s\n\n", $id, $payload);
+        return sprintf("%sdata: %s\n\n", $id, \json_encode($payload));
     }
 }
