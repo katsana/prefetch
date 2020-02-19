@@ -1,6 +1,6 @@
 {
     "name": "katsana/prefetch",
-    "description": "SSE Prefetch for Laravel",
+    "description": "SSE Prefetch Component for Laravel",
     "type": "library",
     "license": "MIT",
     "authors": [
