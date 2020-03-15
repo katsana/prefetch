@@ -4,8 +4,8 @@ namespace Katsana\Prefetch\Tests\Stubs;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
-use Katsana\Prefetch\Data;
 use Katsana\Prefetch\Component;
+use Katsana\Prefetch\Data;
 
 class PingHandler extends Component
 {

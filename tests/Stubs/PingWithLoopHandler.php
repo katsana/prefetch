@@ -4,9 +4,9 @@ namespace Katsana\Prefetch\Tests\Stubs;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use Katsana\Prefetch\Component;
 use Katsana\Prefetch\Contracts\LoopUntil;
 use Katsana\Prefetch\ExitCommand;
-use Katsana\Prefetch\Component;
 
 class PingWithLoopHandler extends Component implements LoopUntil
 {
