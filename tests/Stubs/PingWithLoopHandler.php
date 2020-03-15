@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Katsana\Prefetch\Contracts\LoopUntil;
 use Katsana\Prefetch\ExitCommand;
-use Katsana\Prefetch\Handler;
+use Katsana\Prefetch\Component;
 
-class PingWithLoopHandler extends Handler implements LoopUntil
+class PingWithLoopHandler extends Component implements LoopUntil
 {
     protected $data = ['foo', 'bar'];
 

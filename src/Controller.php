@@ -27,9 +27,9 @@ class Controller extends \Illuminate\Routing\Controller
         \ini_set('max_execution_time', 0);
         $this->disableOutputBuffering();
 
-        $handler = \app()->make($request->route()->defaults['handler']);
+        $component = \app()->make($request->route()->defaults['component']);
 
-        return Response::stream($this->streamResolver($handler, $request), 200, [
+        return Response::stream($this->streamResolver($component, $request), 200, [
             'Content-Type' => 'text/event-stream',
             'X-Accel-Buffering' => 'no',
             'Cache-Control' => 'no-cache',
@@ -39,35 +39,35 @@ class Controller extends \Illuminate\Routing\Controller
     /**
      * Stream resolver.
      */
-    protected function streamResolver(Handler $handler, Request $request): Closure
+    protected function streamResolver(Component $component, Request $request): Closure
     {
-        return function () use ($handler, $request) {
-            $handler->onStreamStarted();
+        return function () use ($component, $request) {
+            $component->onStreamStarted();
 
             do {
-                $handler->onLoopStarted();
+                $component->onLoopStarted();
 
-                $handler->collection($request)
-                    ->map(static function ($data) use ($handler) {
+                $component->collection($request)
+                    ->map(static function ($data) use ($component) {
                         if ($data instanceof Contracts\Command) {
                             return $data;
                         }
 
-                        return $handler->transform($data);
-                    })->each(function ($data) {
+                        return $component->transform($data);
+                    })->each(function ($data) use ($component) {
                         if ($data instanceof ExitCommand) {
                             $this->shouldExit = true;
 
                             return false;
                         }
 
-                        echo (string) $data;
+                        $component->render($data);
                     });
 
-                $handler->onLoopEnded();
-            } while ($handler instanceof Contracts\LoopUntil && $this->shouldExit === false);
+                $component->onLoopEnded();
+            } while ($component instanceof Contracts\LoopUntil && $this->shouldExit === false);
 
-            $handler->onStreamEnded();
+            $component->onStreamEnded();
         };
     }
 }

@@ -44,9 +44,9 @@ class PrefetchServiceProvider extends ServiceProvider
      */
     protected function registerRouterMacro(): void
     {
-        Router::macro('prefetch', function ($uri, $handler) {
+        Router::macro('prefetch', function ($uri, $component) {
             return $this->match(['GET', 'HEAD'], $uri, '\Katsana\Prefetch\Controller')
-                ->defaults('handler', $handler);
+                ->defaults('component', $component);
         });
     }
 }

@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Katsana\Prefetch\Data;
 use Katsana\Prefetch\Event;
-use Katsana\Prefetch\Handler;
+use Katsana\Prefetch\Component;
 
-class PingWithEventHandler extends Handler
+class PingWithEventHandler extends Component
 {
     public function collection(Request $request)
     {

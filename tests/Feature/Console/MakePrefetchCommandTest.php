@@ -20,8 +20,8 @@ class MakePrefetchCommandTest extends TestCase
             'namespace App\Http\Prefetch;',
             'use Illuminate\Http\Request;',
             'use Illuminate\Support\Collection;',
-            'use Katsana\Prefetch\Handler;',
-            'class Ping extends Handler',
+            'use Katsana\Prefetch\Component;',
+            'class Ping extends Component',
             'public function collection(Request $request)',
         ], 'app/Http/Prefetch/Ping.php');
     }
