@@ -7,3 +7,11 @@ SSE (Server-Sent Event) Prefetch Component for Laravel
 [![Latest Unstable Version](https://poser.pugx.org/katsana/prefetch/v/unstable)](https://packagist.org/packages/katsana/prefetch)
 [![License](https://poser.pugx.org/katsana/prefetch/license)](https://packagist.org/packages/katsana/prefetch)
 [![Coverage Status](https://coveralls.io/repos/github/katsana/prefetch/badge.svg?branch=master)](https://coveralls.io/github/katsana/prefetch?branch=master)
+
+## Installation
+
+Prefetch can be installed via composer:
+
+```
+composer require "katsana/prefetch"
+```
