@@ -2,6 +2,8 @@
 
 namespace Katsana\Prefetch;
 
+use Illuminate\Http\Request;
+
 abstract class Component
 {
     /**
