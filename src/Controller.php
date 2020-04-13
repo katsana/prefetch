@@ -41,6 +41,8 @@ class Controller extends \Illuminate\Routing\Controller
      */
     protected function streamResolver(Component $component, Request $request): Closure
     {
+        $component->mount($request);
+
         return function () use ($component, $request) {
             $component->onStreamStarted();
 

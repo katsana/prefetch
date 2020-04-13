@@ -27,6 +27,14 @@ abstract class Component
     }
 
     /**
+     * Set on component mounted.
+     */
+    public function mount(Request $request): void
+    {
+        //
+    }
+
+    /**
      * On loop started event.
      */
     public function onLoopStarted(): void
