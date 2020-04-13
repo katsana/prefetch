@@ -27,7 +27,7 @@ abstract class Component
     }
 
     /**
-     * Set on component mounted.
+     * On component mounted.
      */
     public function mount(Request $request): void
     {
