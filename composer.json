@@ -25,13 +25,13 @@
         }
     },
     "require": {
-        "php": ">=7.2",
-        "illuminate/support": "^6.0 || ^7.0",
-        "orchestra/canvas-core": "^4.7 || ^5.0"
+        "php": ">=7.3",
+        "illuminate/support": "^6.0 || ^7.0 || ^8.0",
+        "orchestra/canvas-core": "^4.7 || ^5.0 || ^6.0"
     },
     "require-dev": {
-        "orchestra/canvas": "^4.4 || ^5.0",
-        "orchestra/testbench": "^4.5 || ^5.0"
+        "orchestra/canvas": "^4.4 || ^5.0 || ^6.0",
+        "orchestra/testbench": "^4.5 || ^5.0 || ^6.0"
     },
     "config": {
         "sort-packages": true
