@@ -2,9 +2,9 @@
 
 namespace Katsana\Prefetch\Console;
 
-use Orchestra\Canvas\Core\Commands\Generator;
+use Orchestra\Canvas\Core\Commands\GeneratorCommand;
 
-class MakePrefetchCommand extends Generator
+class MakePrefetchCommand extends GeneratorCommand
 {
     /**
      * The console command name.
@@ -29,6 +29,16 @@ class MakePrefetchCommand extends Generator
 
     /**
      * Get the stub file for the generator.
+     *
+     * @return string
+     */
+    protected function getStub()
+    {
+        return $this->getStubFile();
+    }
+
+    /**
+     * Get the stub file for the generator.
      */
     public function getStubFile(): string
     {
@@ -38,7 +48,7 @@ class MakePrefetchCommand extends Generator
     /**
      * Get the default namespace for the class.
      */
-    public function getDefaultNamespace(string $rootNamespace): string
+    public function getDefaultNamespace($rootNamespace): string
     {
         return $rootNamespace.'\Http\Prefetch';
     }

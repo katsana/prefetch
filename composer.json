@@ -1,48 +1,48 @@
 {
-    "name": "katsana/prefetch",
-    "description": "SSE Prefetch Component for Laravel",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "KATSANA Developer",
-            "email": "developer@katsana.com"
-        },
-        {
-            "name": "Mior Muhammad Zaki",
-            "email": "crynobone@gmail.com",
-            "role": "Developer"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "Katsana\\Prefetch\\": "src/"
-        }
+  "name": "katsana/prefetch",
+  "description": "SSE Prefetch Component for Laravel",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "KATSANA Developer",
+      "email": "developer@katsana.com"
     },
-    "autoload-dev": {
-        "psr-4": {
-            "Katsana\\Prefetch\\Tests\\": "tests/"
-        }
-    },
-    "require": {
-        "php": ">=7.3",
-        "illuminate/support": "^6.0 || ^7.0 || ^8.0",
-        "orchestra/canvas-core": "^4.7 || ^5.0 || ^6.0"
-    },
-    "require-dev": {
-        "orchestra/canvas": "^4.4 || ^5.0 || ^6.0",
-        "orchestra/testbench": "^4.5 || ^5.0 || ^6.0"
-    },
-    "config": {
-        "sort-packages": true
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Katsana\\Prefetch\\PrefetchServiceProvider"
-            ]
-        }
-    },
-    "prefer-stable": true,
-    "minimum-stability": "dev"
+    {
+      "name": "Mior Muhammad Zaki",
+      "email": "crynobone@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Katsana\\Prefetch\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Katsana\\Prefetch\\Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "php": ">=7.3",
+    "illuminate/support": "^6.0 || ^7.0 || ^8.0 || ^9.0",
+    "orchestra/canvas-core": "^4.7 || ^5.0 || ^6.0 || ^7.0"
+  },
+  "require-dev": {
+    "orchestra/canvas": "^4.4 || ^5.0 || ^6.0 || ^7.0",
+    "orchestra/testbench": "^4.5 || ^5.0 || ^6.0 || ^7.0"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Katsana\\Prefetch\\PrefetchServiceProvider"
+      ]
+    }
+  },
+  "prefer-stable": true,
+  "minimum-stability": "dev"
 }

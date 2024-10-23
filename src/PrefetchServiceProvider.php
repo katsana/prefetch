@@ -5,11 +5,11 @@ namespace Katsana\Prefetch;
 use Illuminate\Console\Application as Artisan;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
+use Orchestra\Canvas\Canvas;
 use Orchestra\Canvas\Core\CommandsProvider;
 
 class PrefetchServiceProvider extends ServiceProvider
 {
-    use CommandsProvider;
 
     /**
      * Register services.
@@ -29,10 +29,9 @@ class PrefetchServiceProvider extends ServiceProvider
     public function boot()
     {
         if ($this->app->runningInConsole()) {
-            $preset = $this->presetForLaravel($this->app);
-
-            Artisan::starting(function ($artisan) use ($preset) {
-                $artisan->add(new Console\MakePrefetchCommand($preset));
+            
+            Artisan::starting(function ($artisan) {
+                $artisan->add(new Console\MakePrefetchCommand($this->app['files']));
             });
         }
 

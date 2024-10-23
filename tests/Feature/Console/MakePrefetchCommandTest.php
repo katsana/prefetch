@@ -2,10 +2,13 @@
 
 namespace Laravie\Prefetch\Tests\Feature\Console;
 
-use Orchestra\Canvas\Core\Testing\TestCase;
+use Orchestra\Testbench\Concerns\InteractsWithPublishedFiles;
+use Orchestra\Testbench\TestCase;
 
 class MakePrefetchCommandTest extends TestCase
 {
+    use InteractsWithPublishedFiles;
+    
     protected $files = [
         'app/Http/Prefetch/Ping.php',
     ];
